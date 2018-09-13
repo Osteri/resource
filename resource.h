@@ -5,8 +5,7 @@
 #include <vector>
 #include <optional>
 
-/* Resource class. Ability to hold any object. Very fast.
- * Calls default constructors when creating objects. */
+/* Resource class. Ability to hold any object. */
 
 template<typename T>
 class Resource {
