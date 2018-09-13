@@ -26,11 +26,11 @@ This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of
 
         /* Get Font resource. */
         Font arial = Resource<Font>::GetByName("arial.ttf");
-        std::cout << arial.x << '\n'; // prints 10
+        std::cout << arial.y << '\n'; // prints 20
 
         /* Get Image resource (with auto). */
         auto img = Resource<Image>::GetByName("image.png");
-        std::cout << img.y << '\n'; // prints 20
+        std::cout << img.x << '\n'; // prints 10
         exit(0);
     }
 ```
