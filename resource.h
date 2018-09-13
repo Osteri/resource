@@ -15,11 +15,11 @@ public:
   static auto& GetContainer();
   static T GetByName(const std::string& name);
 private:
-  static std::vector<std::pair<std::string, T>> cont;
+  static std::vector<std::pair<const std::string, T>> cont;
 };
 
 template<typename T>
-typename::std::vector<std::pair<std::string, T>> Resource<T>::cont;
+typename::std::vector<std::pair<const std::string, T>> Resource<T>::cont;
 
 template<typename T>
 template<class ...Args>
