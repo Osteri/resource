@@ -42,7 +42,7 @@ This example has 4 objects, where 2 of them belongs to the `Font` class, 1 of th
         std::cout << img.x << '\n'; // prints 10
 
         /* Get ComplexConstructor resource. */
-        auto cc = Resource<ComplexConstructor>::GetByName("ComplexConstructor");
+        auto cc = Resource<ComplexConstructor>::GetByName("cc");
         std::cout << cc.x << ' ' << cc.y << '\n'; // prints 10 2.4
 
         exit(0);
