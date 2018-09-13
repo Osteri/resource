@@ -29,7 +29,7 @@ This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of
         std::cout << arial.x << '\n'; // prints 10
 
         /* Get Image resource (with auto). */
-        auto img = Resource<Font>::GetByName("arial.ttf");
+        auto img = Resource<Image>::GetByName("image.png");
         std::cout << img.y << '\n'; // prints 20
         exit(0);
     }
