@@ -4,7 +4,7 @@ Extremely fast header only resource management library.
 ### Rationale
 If you need a generic way of handling multiple resource classes in your project, the most elegant solution is to usually use some kind of dynamic casting method with derived classes. This has the downside of being slow, as the program needs to figure out in runtime which derived types we want from our base class container.
 
-This resource library on the other hand creates `std::vector<std::pair<std::string, T>>` container and accessors for every resource `T` type you create. `T` of course could be any type. The cost of accessing a resource is the cost of accessing `std::vector<std::pair<std::string, T>` element, which is extremely fast, compared to dynamic casting.
+This resource library on the other hand creates `std::vector<std::pair<std::string, T>>` container and accessors for every resource `T` type you create. `T` of course could be any type. The cost of accessing a resource is the cost of accessing `std::vector<std::pair<std::string, T>>` element, which is extremely fast, compared to dynamic casting.
 
 ### Example
 
