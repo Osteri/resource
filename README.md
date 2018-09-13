@@ -8,7 +8,7 @@ This resource library on the other hand creates `std::vector<std::pair<std::stri
 
 ### Example
 
-This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of them belongs to the `Image` class. `Font` and `Image` could be any classes you like. `Resource<T>::Create("resource-name")` adds new resource of type `T`, which can be accessed with `Resource<T>::GetByName("resource-name")` accessor. It returns type `T` object.
+This example has 4 objects, where 2 of them belongs to the `Font` class, 1 of them belongs to the `Image` class and 1 of them belongs to the `ComplexConstructor`class. `Font` and `Image` could be any classes you like. `Resource<T>::Create("resource-name")` adds new resource of type `T`, which can be accessed with `Resource<T>::GetByName("resource-name")` accessor. It returns type `T` object.
 
 ```cpp
     #include "resource.h"
