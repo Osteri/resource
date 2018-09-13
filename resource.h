@@ -6,14 +6,13 @@
 #include <optional>
 
 /* Resource class. Ability to hold any object. Very fast.
- * Calls default constructors when creating objects.
- *
- * TODO: add ability to load resources with other than default constructor. */
+ * Calls default constructors when creating objects. */
 
 template<typename T>
 class Resource {
 public:
-  static void Create(const std::string& name);
+  template<class ...Args>
+  static void Create(const std::string& name, Args... args);
   static auto& GetContainer();
   static T GetByName(const std::string& name);
 private:
@@ -24,8 +23,9 @@ template<typename T>
 typename::std::vector<std::pair<std::string, T>> Resource<T>::cont;
 
 template<typename T>
-void Resource<T>::Create(const std::string& name) {
-  cont.push_back( std::make_pair(std::string(name), T()) );
+template<class ...Args>
+void Resource<T>::Create(const std::string& name, Args... args) {
+  cont.push_back( std::make_pair(std::string(name), T(args...)) );
 }
 
 template<typename T>

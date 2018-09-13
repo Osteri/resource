@@ -13,9 +13,16 @@ This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of
 ```cpp
     #include "resource.h"
 
+
       /* Dummy classes for demonstration purposes. */
       class Image { int x = 10; };
       class Font { int y = 20; };
+      class ComplexConstructor {
+      public: 
+        ComplexConstructor(int x, double y) { m_x = x; m_y = y; }
+        int m_x;
+        double m_y;
+      };
 
       int main() {
         /* Fonts are in one static container. */
@@ -23,6 +30,8 @@ This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of
         Resource<Font>::Create("ubuntu.ttf");
         /* Images are in different static container. */
         Resource<Image>::Create("image.png");
+        /* ComplexConstructor is initialized with 2 arguments. */
+        Resource<ComplexConstructor>::Create("cc", 10, 2.4);
 
         /* Get Font resource. */
         Font arial = Resource<Font>::GetByName("arial.ttf");
@@ -31,6 +40,11 @@ This example has 3 objects, where 2 of them belongs to the `Font` class and 1 of
         /* Get Image resource (with auto). */
         auto img = Resource<Image>::GetByName("image.png");
         std::cout << img.x << '\n'; // prints 10
+
+        /* Get ComplexConstructor resource. */
+        auto cc = Resource<ComplexConstructor>::GetByName("ComplexConstructor");
+        std::cout << cc.x << ' ' << cc.y << '\n'; // prints 10 2.4
+
         exit(0);
     }
 ```
@@ -42,6 +56,5 @@ Header-only inclusion is enough.
     #include "resource.h"
 
 ### TODO
-- Only default constructor is supported atm. It should be fairly easy to add custom constructors with variadic templates in the future.
 - Possibly sort underlaying containers for faster access.
 - Are duplicates problem?

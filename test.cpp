@@ -36,6 +36,9 @@ int main()
   Resource<Font>::Create("ubuntu.ttf");
   Resource<Image>::Create("1.png");
   Resource<Image>::Create("2.jpg");
+  // Create object with custom arguments (aka non-default constructor).
+  Resource<ComplexConstructor>::Create("ComplexConstructor", 2, 2.4);
+  Resource<ComplexConstructor>::Create("ComplexConstructor2", 3, 1.6);
   /*****************************************************/
 
   /* Get Image container and print all Image names. ****/
@@ -70,6 +73,15 @@ int main()
     } catch (std::invalid_argument& e) {
       std::cerr << e.what() << '\n';
     }
+  }
+
+  /* Test ComplexConstructor object. */
+  {
+    auto cc = Resource<ComplexConstructor>::GetByName("ComplexConstructor");
+    std::cout << cc.get_x() << ' ' << cc.get_y() << '\n';
+
+    auto container = Resource<ComplexConstructor>::GetContainer();
+    std::cout << "ComplexConstructor has " << container.size() << " instances stored." << '\n';
   }
 
 //  /* Don't check object validity at all (not recommended). Dangerous. */
