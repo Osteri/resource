@@ -24,7 +24,7 @@ typename::std::vector<std::pair<const std::string, T>> Resource<T>::cont;
 template<typename T>
 template<class ...Args>
 void Resource<T>::Create(const std::string& name, Args... args) {
-  cont.push_back( std::make_pair(std::string(name), T(args...)) );
+  cont.emplace_back( std::make_pair(std::string(name), T(args...)) );
 }
 
 template<typename T>
@@ -34,7 +34,7 @@ auto& Resource<T>::GetContainer() {
 
 template<typename T>
 T Resource<T>::GetByName(const std::string& name) {
-  for(auto var : cont) {
+  for(const auto& var : cont) {
    if(name == var.first) {
      return var.second;
    }
