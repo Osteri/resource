@@ -10,7 +10,7 @@ set(void ${QT_QMAKE_EXECUTABLE})
 
 # add source/include files
 aux_source_directory(tests/ SRC_LIST)
-include_directories(. INC_LIST)
+include_directories(. tests/ INC_LIST)
 
 enable_testing()
 
@@ -48,6 +48,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(example ${SRC_LIST})
-target_link_libraries(example gtest_main)
+add_executable(main_test ${SRC_LIST})
+target_link_libraries(main_test gtest_main)
 add_test(NAME example_test COMMAND example)
