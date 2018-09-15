@@ -54,8 +54,6 @@ TEST(tc0, throw_test) {
   EXPECT_ANY_THROW(Resource<Font>::GetByName("not_found_ABCDEFG.ttf"));
 }
 
-
-
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
