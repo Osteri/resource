@@ -52,8 +52,30 @@ int main() {
 ### How to install/use it?
 Header-only inclusion is enough.
 
-    wget https://raw.githubusercontent.com/Osteri/resource/master/resource.h
-    #include "resource.h"
+```
+wget https://raw.githubusercontent.com/Osteri/resource/master/resource.h
+#include "resource.h"
+```
+
+### Test
+
+```
+git clone --recursive https://github.com/Osteri/resource.git
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+make -j12
+./test/resource-test
+```
+
+### Benchmark
+
+```
+git clone --recursive https://github.com/Osteri/resource.git
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j12
+./bench/resource-bench
+```
 
 ### TODO
 - Possibly sort underlaying containers for faster access.
