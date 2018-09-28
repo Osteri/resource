@@ -43,7 +43,7 @@ int main() {
 
   /* Get ComplexConstructor resource. */
   auto cc = Resource<ComplexConstructor>::GetByName("cc");
-  std::cout << cc.x << ' ' << cc.y << '\n'; // prints 10 2.4
+  std::cout << cc.m_x << ' ' << cc.m_y << '\n'; // prints 10 2.4
 
   exit(0);
 }
@@ -61,7 +61,7 @@ wget https://raw.githubusercontent.com/Osteri/resource/master/resource.h
 
 ```
 git clone --recursive https://github.com/Osteri/resource.git
-mkdir build && cd build
+cd resource && mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 make -j12
 ./test/resource-test
@@ -71,7 +71,7 @@ make -j12
 
 ```
 git clone --recursive https://github.com/Osteri/resource.git
-mkdir build && cd build
+cd resource && mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j12
 ./bench/resource-bench
