@@ -13,7 +13,6 @@ This example has 4 objects, where 2 of them belongs to the `Font` class, 1 of th
 ```cpp
 #include "resource.h"
 
-
 /* Dummy classes for demonstration purposes. */
 class Image { int x = 10; };
 class Font { int y = 20; };
@@ -34,18 +33,18 @@ int main() {
   Resource<ComplexConstructor>::Create("cc", 10, 2.4);
 
   /* Get Font resource. */
-  Font arial = Resource<Font>::GetByName("arial.ttf");
+  Font& arial = Resource<Font>::GetByName("arial.ttf");
   std::cout << arial.y << '\n'; // prints 20
 
   /* Get Image resource (with auto). */
-  auto img = Resource<Image>::GetByName("image.png");
+  auto& img = Resource<Image>::GetByName("image.png");
   std::cout << img.x << '\n'; // prints 10
 
   /* Get ComplexConstructor resource. */
-  auto cc = Resource<ComplexConstructor>::GetByName("cc");
+  auto& cc = Resource<ComplexConstructor>::GetByName("cc");
   std::cout << cc.m_x << ' ' << cc.m_y << '\n'; // prints 10 2.4
 
-  exit(0);
+  exit(EXIT_SUCCESS);
 }
 ```
 
